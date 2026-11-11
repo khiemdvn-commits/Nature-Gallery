@@ -1,0 +1,146 @@
+
+/* GENERAL STYLING */
+
+body {
+    background-color: #f2f5f1;
+    color: #253126;
+    font-family: Arial, sans-serif;
+    margin: 10px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px;
+}
+
+p {
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+a {
+    color: #253126;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* MOBILE VIEW - DEFAULT */
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+figure {
+    background-color: white;
+    border: 2px solid #d5ddd5;
+    margin: 0;
+    overflow: hidden;
+}
+
+figure img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+figcaption {
+    text-align: center;
+    padding: 12px;
+    font-size: 18px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+}
+
+/* TABLET VIEW - 772px */
+
+@media screen and (min-width: 772px) {
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    figure {
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    figure img {
+        height: 75%;
+        flex: 1;
+    }
+
+    figcaption {
+        height: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    figure:last-child {
+        grid-column: 1 / -1;
+        width: calc(50% - 5px);
+        justify-self: center;
+    }
+
+}
+
+/* LARGE SCREEN - 992px */
+
+@media screen and (min-width: 992px) {
+
+    figure:nth-child(3n) {
+        grid-column: 1 / -1;
+    }
+
+    figure {
+        border-radius: 0;
+        aspect-ratio: auto;
+        width: 100%;
+        justify-self: stretch;
+    }
+
+    figure img {
+        height: 250px;
+        flex: none;
+    }
+
+    figcaption {
+        height: auto;
+    }
+
+}
+
+/* REDUCED MOTION */
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+}
+
+/* DARK MODE */
+
+@media (prefers-color-scheme: dark) {
+
+    figure {
+        background-color: #222222;
+        color: #fff5cc;
+        border: 2px solid black;
+    }
+
+}
